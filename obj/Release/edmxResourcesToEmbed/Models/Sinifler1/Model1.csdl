@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GeziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KULANICI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SIFRE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ADRE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BASLIQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACIQLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADRESACIQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KONUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ANASEYFE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BASLIQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACIQLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BLOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BASLIG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TARIX" Type="DateTime" Precision="3" />
+    <Property Name="ACIQLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BLOGIMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="YORUMLARs" Relationship="Self.FK_YORUMLAR_BLOG" FromRole="BLOG" ToRole="YORUMLAR" />
+  </EntityType>
+  <EntityType Name="ELAQE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ADSOYAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KONUM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MESAJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HAQQIMIZDA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FOTOURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ACIQLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="YORUMLAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KULANICIADI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YORUM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BLOGID" Type="Int32" />
+    <NavigationProperty Name="BLOG" Relationship="Self.FK_YORUMLAR_BLOG" FromRole="YORUMLAR" ToRole="BLOG" />
+  </EntityType>
+  <Association Name="FK_YORUMLAR_BLOG">
+    <End Role="BLOG" Type="Self.BLOG" Multiplicity="0..1" />
+    <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YORUMLAR">
+        <PropertyRef Name="BLOGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GeziEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
+    <EntitySet Name="ADRES" EntityType="Self.ADRE" />
+    <EntitySet Name="ANASEYFEs" EntityType="Self.ANASEYFE" />
+    <EntitySet Name="BLOGs" EntityType="Self.BLOG" />
+    <EntitySet Name="ELAQEs" EntityType="Self.ELAQE" />
+    <EntitySet Name="HAQQIMIZDAs" EntityType="Self.HAQQIMIZDA" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="YORUMLARs" EntityType="Self.YORUMLAR" />
+    <AssociationSet Name="FK_YORUMLAR_BLOG" Association="Self.FK_YORUMLAR_BLOG">
+      <End Role="BLOG" EntitySet="BLOGs" />
+      <End Role="YORUMLAR" EntitySet="YORUMLARs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

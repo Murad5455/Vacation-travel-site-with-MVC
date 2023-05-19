@@ -1,0 +1,14 @@
+﻿@using TravelTripProje1.Models.Sinifler1
+@model List<BLOG>
+
+<div class="box1-left">
+    @foreach (var w in Model)
+    {
+        <div class="bot-img">
+            <img src="@w.BLOGIMAGE" style="width:360px;height:80px" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>@w.ACIQLAMA.Substring(0, 50) </p>
+        </div>
+        <div class="clear"></div>}
+</div>

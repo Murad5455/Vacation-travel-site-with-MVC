@@ -1,0 +1,34 @@
+﻿@using TravelTripProje1.Models.Sinifler1
+@model List<BLOG>
+
+<div class="con-bot">
+    @foreach (var w in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@w.BLOGIMAGE"style="width:300px;height:150px" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@w.BASLIG</h4>
+                <span class="doller">@w.TARIX</span>
+                <p>@w.ACIQLAMA.Substring(0,50)</p>
+                <p><a href="/BLOG/BlogDetay/@w.ID"><span class="read">Davamini oxu >></span></a></p>
+            </div>
+        </div>}
+        @Html.Action("partial2", "Default")
+    
+
+    @*<div class="right">
+            <div class="bot-left">
+                <img src="~/web/images/pic2.jpg" alt="" />
+            </div>
+            <div class="left-text">
+
+                <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
+                <span class="doller">$924.99</span>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
+                <p><a href="#"><span class="read">Read More >></span></a></p>
+            </div>
+        </div>*@
+    <div class="clear"></div>
+</div>

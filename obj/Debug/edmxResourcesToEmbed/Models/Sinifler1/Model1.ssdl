@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GeziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULANICI" Type="nvarchar(max)" />
+    <Property Name="SIFRE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ADRES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BASLIQ" Type="varchar" MaxLength="50" />
+    <Property Name="ACIQLAMA" Type="varchar" MaxLength="50" />
+    <Property Name="ADRESACIQ" Type="varchar" MaxLength="50" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="50" />
+    <Property Name="KONUM" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ANASEYFE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BASLIQ" Type="varchar" MaxLength="50" />
+    <Property Name="ACIQLAMA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BLOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BASLIG" Type="nvarchar(max)" />
+    <Property Name="TARIX" Type="datetime" />
+    <Property Name="ACIQLAMA" Type="nvarchar(max)" />
+    <Property Name="BLOGIMAGE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ELAQE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADSOYAD" Type="nvarchar(max)" />
+    <Property Name="MAIL" Type="nvarchar(max)" />
+    <Property Name="KONUM" Type="nvarchar(max)" />
+    <Property Name="MESAJ" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HAQQIMIZDA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FOTOURL" Type="nvarchar(max)" />
+    <Property Name="ACIQLAMA" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="YORUMLAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULANICIADI" Type="nvarchar(max)" />
+    <Property Name="MAIL" Type="nvarchar(max)" />
+    <Property Name="YORUM" Type="nvarchar(max)" />
+    <Property Name="BLOGID" Type="int" />
+  </EntityType>
+  <Association Name="FK_YORUMLAR_BLOG">
+    <End Role="BLOG" Type="Self.BLOG" Multiplicity="0..1" />
+    <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YORUMLAR">
+        <PropertyRef Name="BLOGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GeziModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADRES" EntityType="Self.ADRES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ANASEYFE" EntityType="Self.ANASEYFE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BLOG" EntityType="Self.BLOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ELAQE" EntityType="Self.ELAQE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HAQQIMIZDA" EntityType="Self.HAQQIMIZDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YORUMLAR" EntityType="Self.YORUMLAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_YORUMLAR_BLOG" Association="Self.FK_YORUMLAR_BLOG">
+      <End Role="BLOG" EntitySet="BLOG" />
+      <End Role="YORUMLAR" EntitySet="YORUMLAR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,36 @@
+﻿@using TravelTripProje1.Models.Sinifler1
+@model List<YORUMLAR>
+@{
+    ViewBag.Title = "ReySeyfesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Rey seyfesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ISDIFADECI ADI</th>
+        <th>MAIL</th>
+        <th>REY</th>
+        <th>BLOGID</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+
+    </tr>
+    @foreach (var W in Model)
+    {
+        <tr>
+            <td>@W.ID</td>
+            <td>@W.KULANICIADI</td>
+            <td>@W.MAIL</td>
+            <td>@W.YORUM</td>
+            <td>@W.BLOGID</td>
+            <td> <a href="/Admin/ReySil/@W.ID" class="btn btn-danger"> SIL</a></td>
+            <td><a href="/Admin/ReyGetir/@W.ID" class="btn btn-warning"> GUNCELLE</a></td>
+
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,27 @@
+﻿@model TravelTripProje1.Models.Sinifler1.YORUMLAR
+@{
+    ViewBag.Title = "ReyGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Rey Getir</h2>
+
+@using (Html.BeginForm("ReyGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" ,@Readonly="readonly"})
+
+    
+        @Html.Label("Istifadeci adi")
+        @Html.TextBoxFor(x => x.KULANICIADI, new { @class = "form-control" })
+
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+
+        @Html.Label("Rey")
+        @Html.TextAreaFor(x => x.YORUM, 15, 1, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">REY GUNCELLE</button>
+
+
+    }

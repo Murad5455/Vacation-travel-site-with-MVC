@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GeziModelStoreContainer" CdmEntityContainer="GeziEntities4">
+    <EntitySetMapping Name="ADMINs">
+      <EntityTypeMapping TypeName="GeziModel.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KULANICI" ColumnName="KULANICI" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADRES">
+      <EntityTypeMapping TypeName="GeziModel.ADRE">
+        <MappingFragment StoreEntitySet="ADRES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BASLIQ" ColumnName="BASLIQ" />
+          <ScalarProperty Name="ACIQLAMA" ColumnName="ACIQLAMA" />
+          <ScalarProperty Name="ADRESACIQ" ColumnName="ADRESACIQ" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="KONUM" ColumnName="KONUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANASEYFEs">
+      <EntityTypeMapping TypeName="GeziModel.ANASEYFE">
+        <MappingFragment StoreEntitySet="ANASEYFE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BASLIQ" ColumnName="BASLIQ" />
+          <ScalarProperty Name="ACIQLAMA" ColumnName="ACIQLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLOGs">
+      <EntityTypeMapping TypeName="GeziModel.BLOG">
+        <MappingFragment StoreEntitySet="BLOG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BASLIG" ColumnName="BASLIG" />
+          <ScalarProperty Name="TARIX" ColumnName="TARIX" />
+          <ScalarProperty Name="ACIQLAMA" ColumnName="ACIQLAMA" />
+          <ScalarProperty Name="BLOGIMAGE" ColumnName="BLOGIMAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ELAQEs">
+      <EntityTypeMapping TypeName="GeziModel.ELAQE">
+        <MappingFragment StoreEntitySet="ELAQE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="KONUM" ColumnName="KONUM" />
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HAQQIMIZDAs">
+      <EntityTypeMapping TypeName="GeziModel.HAQQIMIZDA">
+        <MappingFragment StoreEntitySet="HAQQIMIZDA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FOTOURL" ColumnName="FOTOURL" />
+          <ScalarProperty Name="ACIQLAMA" ColumnName="ACIQLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="GeziModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YORUMLARs">
+      <EntityTypeMapping TypeName="GeziModel.YORUMLAR">
+        <MappingFragment StoreEntitySet="YORUMLAR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KULANICIADI" ColumnName="KULANICIADI" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="YORUM" ColumnName="YORUM" />
+          <ScalarProperty Name="BLOGID" ColumnName="BLOGID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

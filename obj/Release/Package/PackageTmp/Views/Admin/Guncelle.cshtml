@@ -1,0 +1,29 @@
+﻿@model TravelTripProje1.Models.Sinifler1.BLOG
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog guncelleme seyfesi</h2>
+<br />
+@using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post))
+{
+            @Html.Label("ID")
+    @Html.TextBoxFor(a => a.ID, new { @class = "form-control", @readonly = "readonly"})
+
+    @Html.Label("BASLIG")
+    @Html.TextBoxFor(A=>A.BASLIG, new { @class = "form-control" })
+
+    @Html.Label("TARIX")
+    @Html.TextBoxFor(W => W.TARIX, new { @class = "form-control" })
+
+    @Html.Label("BLOG SEKIL")
+    @Html.TextBoxFor(A => A.BLOGIMAGE, new { @class = "form-control" })
+
+    @Html.Label("ACIQLAMA")
+    @Html.TextAreaFor(A => A.ACIQLAMA,15,1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">GUNCELLE</button>
+
+            }
+

@@ -1,0 +1,24 @@
+﻿@using TravelTripProje1.Models.Sinifler1
+@model List<HAQQIMIZDA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>About</h3>
+            @foreach (var x in Model)
+            {
+               <img src="@x.FOTOURL" alt="" />
+
+             
+
+
+                <p>@x.ACIQLAMA </p>
+            }
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model TravelTripProje1.Models.Sinifler1.BLOG
+@{
+    ViewBag.Title = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form class="form-group" method="post">
+    @Html.Label("BASLIG")
+    @Html.TextBoxFor(A => A.BASLIG, new { @CLASS = "form-control" })
+
+    @Html.Label("BLOG SEKIL")
+    @Html.TextBoxFor(A => A.BLOGIMAGE, new { @class = "form-control" })
+
+    @Html.Label("TARIX")
+    @Html.TextBoxFor(A => A.TARIX, new { @class = "form-control" })
+
+    @Html.Label("ACIQLAMA")
+    @Html.TextAreaFor(A => A.ACIQLAMA, new { @class = "form-control" })
+
+
+    <button class="btn btn-primary">BLOG ELEVE ET</button>
+</form>
